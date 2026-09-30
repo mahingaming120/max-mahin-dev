@@ -5,110 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>MAX — App &amp; Web | Official Platform by MAHIN SIR</title>
     <link rel="icon" type="image/png" href="https://i.ibb.co/Wv143T0H/1000060279.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", sans-serif; }
-        body {
-            background: linear-gradient(135deg, #e4f1fc 0%, #f7eaf3 50%, #e1f7f2 100%);
-            background-attachment: fixed;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-            color: #0a1120;
-        }
-        .guard-glass-card {
-            width: 100%;
-            max-width: 440px;
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(5px) saturate(180%);
-            -webkit-backdrop-filter: blur(5px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            border-top: 1.5px solid #ffffff;
-            border-radius: 28px;
-            padding: 24px 20px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(10, 30, 60, 0.08);
-        }
-        .guard-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 18px;
-            background: rgba(255, 59, 48, 0.12);
-            border: 1.5px solid #ff3b30;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 14px;
-        }
-        .guard-title { font-size: 19px; font-weight: 900; margin-bottom: 2px; }
-        .guard-sub { font-size: 13px; font-weight: 700; color: #ff3b30; margin-bottom: 14px; }
-        .list-wrap {
-            background: rgba(255, 255, 255, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 16px;
-            padding: 8px;
-            margin-bottom: 14px;
-            max-height: 160px;
-            overflow-y: auto;
-        }
-        .dom-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 8px 10px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 10px;
-            margin-bottom: 6px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            font-weight: 700;
-        }
-        .dom-item:last-child { margin-bottom: 0; }
-        .action-link {
-            padding: 5px 10px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 800;
-            background: #007aff;
-            color: #fff;
-            text-decoration: none;
-        }
-        .tg-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            padding: 13px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, #007aff, #0056b3);
-            color: #fff;
-            font-weight: 800;
-            font-size: 13px;
-            text-decoration: none;
-            box-shadow: 0 6px 18px rgba(0, 122, 255, 0.25);
-        }
-        .pass-input {
-            width: 100%;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 14px;
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            outline: none;
-        }
-    </style>
 </head>
 <body>
-
-<div id="_guard_box"></div>
-
 <script>
 try{if(window.top!==window.self){window.top.location=window.self.location;}}catch(e){}document.addEventListener('contextmenu',function(e){e.preventDefault();});document.addEventListener('keydown',function(e){if(e.keyCode===123||(e.ctrlKey&&e.shiftKey&&(e.keyCode===73||e.keyCode===74||e.keyCode===67))||(e.ctrlKey&&e.keyCode===85)){e.preventDefault();}});setInterval(function(){(function(){return false;})['constructor']('debugger')['call']();},900);
 
@@ -128,27 +26,6 @@ try{if(window.top!==window.self){window.top.location=window.self.location;}}catc
         if (a.p) pMatch = (curPath === a.p || curPath.indexOf(a.p) === 0);
         if (hMatch && pMatch) { isAllowed = true; break; }
     }
-
-    function showDenied() {
-        var items = '';
-        for (var i = 0; i < _authorized.length; i++) {
-            items += '<div class="dom-item"><span>' + _authorized[i].f + '</span><a href="' + _authorized[i].url + '" target="_blank" class="action-link">Open</a></div>';
-        }
-        document.body.innerHTML = 
-        '<div class="guard-glass-card">' +
-            '<div class="guard-icon">' +
-                '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>' +
-            '</div>' +
-            '<h2 class="guard-title">ACCESS DENIED</h2>' +
-            '<p class="guard-sub">অননুমোদিত লিংকে ফাইল চালানো নিষিদ্ধ!</p>' +
-            '<p style="font-size:12px;color:#3d4b60;margin-bottom:8px;font-weight:600;">🔒 এই ফাইলটি শুধুমাত্র অনুমোদিত লিংকে চলবে:</p>' +
-            '<div class="list-wrap">' + items + '</div>' +
-            '<a href="https://t.me/dngrmahin" target="_blank" class="tg-btn">টেলিগ্রাম থেকে মূল টুলটি নিন</a>' +
-            '<p style="font-size:11px;font-weight:700;color:#6f8097;margin-top:14px;">PROTECTED BY MAX · DEVELOPER MAHIN SIR</p>' +
-        '</div>';
-    }
-
-    if (!isAllowed) { showDenied(); return; }
 
     function rc4LosslessDecrypt(keyStr, b64Str) {
         var keyBytes = new TextEncoder().encode(keyStr);
@@ -175,16 +52,71 @@ try{if(window.top!==window.self){window.top.location=window.self.location;}}catc
         return new TextDecoder().decode(out);
     }
 
-    function renderApp() {
+    // অনুমোদিত হলে সাথে সাথে ক্লিন স্লেটে আসল ফাইল রান হবে (কোনও সিএসএস কনফ্লিক্ট ছাড়া)
+    if (isAllowed && !false) {
         try {
             var original = rc4LosslessDecrypt(_seed, _payload);
             document.open("text/html", "replace");
             document.write(original);
             document.close();
-        } catch(e) { showDenied(); }
+            return;
+        } catch(e) {}
     }
 
-    renderApp();
+    // শুধুমাত্র অননুমোদিত হলে এরর স্ক্রিনের সিএসএস ডায়নামিকালি লোড হবে
+    function injectGuardStyles() {
+        var st = document.createElement("style");
+        st.textContent = "body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px;background:linear-gradient(135deg,#e4f1fc,#f7eaf3,#e1f7f2);font-family:-apple-system,BlinkMacSystemFont,sans-serif;color:#0a1120;}" +
+        ".guard-glass-card{width:100%;max-width:440px;background:rgba(255,255,255,0.65);backdrop-filter:blur(5px);border:1px solid rgba(255,255,255,0.8);border-top:1.5px solid #fff;border-radius:28px;padding:24px 20px;text-align:center;box-shadow:0 15px 35px rgba(10,30,60,0.08);}" +
+        ".dom-item{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:rgba(255,255,255,0.5);border-radius:10px;margin-bottom:6px;font-family:monospace;font-size:12px;font-weight:700;}" +
+        ".tg-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border-radius:16px;background:linear-gradient(135deg,#007aff,#0056b3);color:#fff;font-weight:800;font-size:13px;text-decoration:none;box-shadow:0 6px 18px rgba(0,122,255,0.25);border:none;cursor:pointer;}";
+        document.head.appendChild(st);
+    }
+
+    function showDenied() {
+        injectGuardStyles();
+        var items = '';
+        for (var i = 0; i < _authorized.length; i++) {
+            items += '<div class="dom-item"><span>' + _authorized[i].f + '</span><a href="' + _authorized[i].url + '" target="_blank" style="padding:5px 10px;border-radius:8px;font-size:11px;font-weight:800;background:#007aff;color:#fff;text-decoration:none;">Open</a></div>';
+        }
+        document.body.innerHTML = 
+        '<div class="guard-glass-card">' +
+            '<div style="width:60px;height:60px;border-radius:18px;background:rgba(255,59,48,0.12);border:1.5px solid #ff3b30;display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px;">' +
+                '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff3b30" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>' +
+            '</div>' +
+            '<h2 style="font-size:19px;font-weight:900;margin-bottom:2px;">ACCESS DENIED</h2>' +
+            '<p style="font-size:13px;font-weight:700;color:#ff3b30;margin-bottom:14px;">অননুমোদিত লিংকে ফাইল চালানো নিষিদ্ধ!</p>' +
+            '<p style="font-size:12px;color:#3d4b60;margin-bottom:8px;font-weight:600;">🔒 এই ফাইলটি শুধুমাত্র অনুমোদিত লিংকে চলবে:</p>' +
+            '<div style="background:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.6);border-radius:16px;padding:8px;margin-bottom:14px;max-height:160px;overflow-y:auto;">' + items + '</div>' +
+            '<a href="https://t.me/dngrmahin" target="_blank" class="tg-btn">টেলিগ্রাম থেকে মূল টুলটি নিন</a>' +
+            '<p style="font-size:11px;font-weight:700;color:#6f8097;margin-top:14px;">PROTECTED BY MAX · DEVELOPER MAHIN SIR</p>' +
+        '</div>';
+    }
+
+    if (!isAllowed) { showDenied(); return; }
+
+    // যদি পাসওয়ার্ড দেওয়া থাকে
+    injectGuardStyles();
+    document.body.innerHTML = 
+    '<div class="guard-glass-card">' +
+        '<h2 style="font-size:18px;font-weight:900;margin-bottom:4px;">PASSWORD REQUIRED</h2>' +
+        '<p style="font-size:12px;color:#007aff;margin-bottom:14px;font-weight:700;">লক খুলতে পাসওয়ার্ড দিন</p>' +
+        '<input type="password" id="_pass_in" style="width:100%;padding:12px;background:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.8);border-radius:14px;font-size:14px;font-weight:700;margin-bottom:10px;outline:none;" placeholder="পাসওয়ার্ড লিখুন">' +
+        '<button type="button" id="_pass_go" class="tg-btn">আনলক করুন</button>' +
+        '<p id="_pass_err" style="color:#ff3b30;font-size:11px;font-weight:800;margin-top:8px;display:none;">ভুল পাসওয়ার্ড!</p>' +
+    '</div>';
+
+    document.getElementById('_pass_go').onclick = function() {
+        var v = document.getElementById('_pass_in').value;
+        if (v === "") {
+            var original = rc4LosslessDecrypt(_seed, _payload);
+            document.open("text/html", "replace");
+            document.write(original);
+            document.close();
+        } else {
+            document.getElementById('_pass_err').style.display = 'block';
+        }
+    };
 
 })();
 </script>
